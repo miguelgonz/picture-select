@@ -8,6 +8,9 @@ var Picture = React.createClass({
     },
     toggle: function () {
         this.setState({selected: !this.state.selected});
+        if (typeof this.props.onToggle === 'function') {
+            this.props.onToggle(this.props.id);
+        }
     },
     render: function() {
         var that = this,
@@ -25,8 +28,6 @@ var Picture = React.createClass({
                     className: "thumbnail",
                     onClick: function () {
                         that.toggle();
-                        typeof that.props.onToggle === 'function' &&
-                            that.props.onToggle();
                     }
                 },
                 React.createElement("img", { src: this.props.url}),
