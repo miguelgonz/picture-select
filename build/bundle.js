@@ -193,11 +193,20 @@
 
 	const LS_KEY = 'pictures_toggle';
 
+	function initStorage() {
+	    localStorage.setItem(LS_KEY, '{"data": []}');
+	    return [];
+	}
+
 	function getStorage() {
-	    var data = JSON.parse(localStorage.getItem(LS_KEY));
+	    var data;
+	    try {
+	        var data = JSON.parse(localStorage.getItem(LS_KEY));
+	    } catch (e) {
+	        return initStorage();
+	    }
 	    if (!data) {
-	        localStorage.setItem(LS_KEY, '{"data": []}');
-	        return [];
+	        return initStorage();
 	    }
 	    return data.data;
 	}
@@ -219,7 +228,7 @@
 
 	module.exports.isItemSelected = function (id) {
 	    var data = getStorage();
-	    return data.indexOf(id) !== -1;
+	    return typeof data === 'Array' && data.indexOf(id) !== -1;
 	};
 
 

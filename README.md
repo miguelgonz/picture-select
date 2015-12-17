@@ -12,4 +12,5 @@ I spent some time setting the whole thing up, so no time for properly setting up
 
 I've kept `build/bundle.js` in the repo to make it easier to run when checking it out, but this file should obviously not be checked in and it should be in .gitignore, as node_modules.
 
-It's the first time I take this headless testing approach for React, since I usually use Jasmine, but it's also interesting. If I had used Jasmine, which I'm more used to, I could've probably done some interaction testing, but the infrastructure to have Jasmine running is quite a lot, and I thought that I would spend half the time setting it up unless I copied it from somewhere else, which was not fair.
+It's the first time I take this headless testing approach for React, since I usually use Jasmine or a DOM Renderer, but it's also interesting. If I had used Jasmine, which I'm more used to, I could've probably done some interaction testing, but the infrastructure to have Jasmine running is quite a lot, and I thought that I would spend half the time setting it up unless I copied it from somewhere else, which was not fair.
+
