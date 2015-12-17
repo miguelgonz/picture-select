@@ -42,5 +42,6 @@ describe('Pictures', function () {
     });
 
     it('toggles a picture', function () {
+        //TODO
     });
 })

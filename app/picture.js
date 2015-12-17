@@ -15,13 +15,17 @@ var Picture = React.createClass({
     render: function() {
         var that = this,
             pictureClass = 'pictures__item';
+            imgClass = '';
 
         if (this.state.selected) {
             pictureClass += ' pictures__item--selected';
+            imgClass = 'selected';
         }
         return React.createElement(
             "div",
-            { className: pictureClass },
+            {
+                className: pictureClass
+            },
             React.createElement(
                 "a",
                 {
@@ -30,10 +34,13 @@ var Picture = React.createClass({
                         that.toggle();
                     }
                 },
-                React.createElement("img", { src: this.props.url}),
+                React.createElement("img", {
+                    src: this.props.url,
+                    className: imgClass
+                }),
                 React.createElement(
-                    "div",
-                    { className: "caption" },
+                    "h5",
+                    {},
                     this.props.title
                 )
             )
