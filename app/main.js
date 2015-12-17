@@ -4,7 +4,14 @@ var Pictures = require('./pictures.js');
 (function(){
     window.cb = function (data){
         React.render(
-            React.createElement(Pictures),
+            React.createElement(
+                Pictures,
+                {
+                    title: data.title,
+                    pictures: data.items,
+                    time: data.modified
+                }
+            ),
             document.getElementById('app')
         );
     }
