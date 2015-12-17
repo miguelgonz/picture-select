@@ -7,12 +7,23 @@ var Pictures = React.createClass({
             chosenPictures: []
         }
     },
-    pictureClick: function () {
+    pictureToggle: function () {
+        console.log(arguments);
     },
     render: function() {
-        var pictures = this.props.pictures.map(function (picture) {
-            return React.createElement(Picture, picture)
-        });
+        var that = this,
+            pictures = this.props.pictures.map(function (picture) {
+                console.log(picture);
+                return React.createElement(
+                    Picture,
+                    {
+                        id: picture.link,
+                        title: picture.title,
+                        url: picture.media.m,
+                        onToggle: that.pictureToggle
+                    }
+                );
+            });
 
         return React.createElement(
             'div',
