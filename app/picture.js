@@ -13,37 +13,20 @@ var Picture = React.createClass({
         }
     },
     render: function() {
-        var that = this,
-            pictureClass = 'pictures__item';
+        var pictureClass = 'pictures__item',
             imgClass = '';
 
         if (this.state.selected) {
             pictureClass += ' pictures__item--selected';
             imgClass = 'selected';
         }
-        return React.createElement(
-            "div",
-            {
-                className: pictureClass
-            },
-            React.createElement(
-                "a",
-                {
-                    className: "thumbnail",
-                    onClick: function () {
-                        that.toggle();
-                    }
-                },
-                React.createElement("img", {
-                    src: this.props.url,
-                    className: imgClass
-                }),
-                React.createElement(
-                    "h5",
-                    {},
-                    this.props.title
-                )
-            )
+        return (
+            <div className={pictureClass}>
+                <a className="thumbnail" onClick={this.toggle}>
+                    <img className={imgClass} src={this.props.url}/>
+                    <h5>{this.props.title}</h5>
+                </a>
+            </div>
         );
     }
 });

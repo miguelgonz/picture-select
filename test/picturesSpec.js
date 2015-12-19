@@ -29,10 +29,10 @@ describe('Pictures', function () {
     });
 
     it('renders each picture', function () {
-        mockData.pictures = [
+        var mockPics = [
             {media: {}}, {media: {}}, {media: {}},
         ];
-        const pictures = React.createElement(Pictures, mockData);
+        const pictures = <Pictures pictures={mockPics}/>;
 
         shallowRenderer = TestUtils.createRenderer();
         shallowRenderer.render(pictures);

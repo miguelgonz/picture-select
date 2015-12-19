@@ -1,2 +1,3 @@
---require test/utils.dom.js
+--require test/utils/dom.js
 --require chai
+--compilers .:test/utils/compiler.js

@@ -7,26 +7,23 @@ var Pictures = React.createClass({
         store.toggleStateOfItem(id);
     },
     _mapPictureDataToElement: function (picture) {
-        return React.createElement(
-            Picture,
-            {
-                id: picture.link,
-                url: picture.media.m,
-                title: picture.title,
-                onToggle: this.pictureToggle,
-                selected: store.isItemSelected(picture.link)
-            }
-        );
+        return <Picture
+                id={picture.link}
+                url={picture.media.m}
+                title={picture.title}
+                onToggle={this.pictureToggle}
+                selected={store.isItemSelected(picture.link)}
+            />
     },
     render: function() {
         var that = this,
             pictures = this.props.pictures.map(this._mapPictureDataToElement);
 
-        return React.createElement(
-            'div',
-            {className: 'pictures'},
-            React.createElement('h2', {}, this.props.title),
-            pictures
+        return (
+            <div className="pictures">
+                <h2>{this.props.title}</h2>
+                {pictures}
+            </div>
         );
     }
 });

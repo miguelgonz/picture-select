@@ -35,5 +35,5 @@ module.exports.toggleStateOfItem = function (id) {
 
 module.exports.isItemSelected = function (id) {
     var data = getStorage();
-    return data.indexOf(id) !== -1;
+    return data && data.indexOf(id) !== -1;
 };
